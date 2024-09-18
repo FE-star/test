@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "clean": "rm -rf node_modules/ && rm -rf ./packages/*/node_modules/ && rm -rf ./packages/*/__tests__/__snapshots__/ && rm -rf ./packages/*/coverage/ && rm -rf ./packages/*/__tests__/__snapshots__/coverage-report/"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12"
+  }
+}

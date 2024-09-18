@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "test": "http-server -p 8000 ./"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "qunit": "^2.22.0"
+  }
+}
