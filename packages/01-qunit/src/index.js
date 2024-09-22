@@ -14,3 +14,7 @@ QUnit.test('test add()', function (assert) {
 QUnit.test('test addFloat()', function (assert) {
   assert.equal(addFloat(0.1, 0.2), 0.3, 'addFloat(0.1, 0.2) = 0.3');
 });
+
+// QUnit.test('test add() for float', function (assert) {
+//   assert.equal(add(.1, .2), .3, 'add(.1, .2) = .3');
+// });

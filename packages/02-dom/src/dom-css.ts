@@ -16,9 +16,9 @@ export function render() {
 
   const html = `
     <style>
-    .app-container { background: #F0F0F0;  }
-    .app-data-list { background: #A0A0A0;  }
-    .app-data-item { background: #C0C0C0; color: #222222;  }
+    .app-container { background: rgb(240, 240, 240);  }
+    .app-data-list { background: rgb(160, 160, 160);  }
+    .app-data-item { background: rgb(192, 192, 192); color: rgb(34, 34, 34);  }
     </style>
     
     <div class="app-container">

@@ -1,4 +1,5 @@
 module.exports = {
+  // 使用 jsdom 作为测试环境
   testEnvironment: 'jsdom',
   collectCoverage: true,
   coverageReporters: ['clover', 'html', 'text-summary'],
