@@ -8,10 +8,12 @@ export function createDialog(props: { title: string; content: string }) {
 
   const root = createRoot(div);
 
-  root.render(
-    <div className="dialog">
-      <div className="dialog-title">{title}</div>
-      <div className="dialog-content">{content}</div>
-    </div>
-  );
+  setTimeout(() => {
+    root.render(
+      <div className="dialog">
+        <div className="dialog-title">{title}</div>
+        <div className="dialog-content">{content}</div>
+      </div>
+    );
+  }, 200)
 }

@@ -26,10 +26,10 @@ describe.skip('mock', () => {
     const myFn = jest.fn()
 
     myFn.mockResolvedValueOnce('hello')
-      .mockRejectedValueOnce('async error')
+      .mockRejectedValueOnce(new Error('async error'))
 
     expect(await myFn()).toBe('hello')
-    await expect(myFn()).rejects.toMatch('async error')
+    await expect(myFn()).rejects.toEqual(expect.any(Error))
   })
 
   test('use jest.spyOn()', () => {

@@ -14,6 +14,8 @@ describe('App', () => {
     expect(text?.textContent).toBe('count:0');
 
     const btn = container.querySelector('.counter-btn');
+    // 可以替换成 btn.click() 吗？
+    // 为什么？
     fireEvent.click(btn as HTMLElement);
     expect(text?.textContent).toBe('count:1');
 

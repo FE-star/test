@@ -3,6 +3,7 @@ import { render } from '@testing-library/react';
 import sinon from 'sinon/pkg/sinon.js';
 import { App } from '../src/xhr';
 
+// https://sinonjs.org/releases/v19/fake-xhr-and-server/
 describe('App', () => {
   test('xhr success', () => {
     let server = sinon.fakeServer.create();

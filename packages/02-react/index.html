@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.3.1",
+        "react-dom": "https://esm.sh/react-dom@18.3.1",
+        "react-dom/": "https://esm.sh/react-dom@18.3.1/"
+      }
+    }
+    </script>
+    <script type="module">
+      import React from "react"
+      import { createRoot } from 'react-dom/client'
+      import build from "https://esm.sh/build"
+
+      const root = createRoot(document.getElementById('root'))
+
+      async function getApp(path) {
+        const code = await fetch(`./src/${path}.tsx`).then(v => v.text())
+        const ret = await build({
+          dependencies: {
+            'react': '18.3.1'
+          },
+          source: code,
+        })
+
+        if (path === 'dynamic') {
+          const { createDialog } = await import(ret.url);
+          return createDialog({ title: '你好', content: 'Hello world!' })
+        }
+
+        const { App } = await import(ret.url);
+        if (path === 'image') {
+          root.render(React.createElement(App, { src: '/1.webp' }))
+        } else {
+          root.render(React.createElement(App))
+        }
+      }
+
+      window.onload = () => {
+        const query = location.search
+        if (!query) {
+          location.search = '?path=index'
+        } else {
+          const path = (new URLSearchParams(query)).get('path')
+          getApp(path)
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <ul>
+        <li><a href="?path=index">index</a></li>
+        <li><a href="?path=dynamic">dynamic</a></li>
+        <li><a href="?path=fetch">fetch</a></li>
+        <li><a href="?path=image">image</a></li>
+        <li><a href="?path=xhr">xhr</a></li>
+      </ul>
+    </div>
+    <div id="root"></div>
+  </body>
+</html>
